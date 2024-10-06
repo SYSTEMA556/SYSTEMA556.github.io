@@ -80,17 +80,22 @@ background-color: #f00
   padding-top: 0.85em;
   text-align: center;
   text-decoration: none;
-  vertical-align: middle;
+  vertical-align: text-bottom;
   width: 2.5em;
 }
 .social-list {
   list-style: none;
   padding: 0;
-  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 .social-list > li {
   display: inline-block;
   margin: 0 0.5em;
+  position: relative;
+  box-sizing: border-box;
+  padding-left: 10px;
 }
 
 /* バイオグラフィースタイル */
@@ -126,23 +131,41 @@ background-color: #f00
   color: green;
 }
 /* ヘッダースタイル */
+.header {
+  background-color: #000;
+  color: #fff;
+}
+.header-logo {
+  background-color: #000;
+  box-sizing: border-box;
+  display: block;
+  height: 10vh;
+  padding-top: 10px;
+  position: relative;
+  text-align: center;
+  width: 10vh;
+}
+.header-logo:hover,
+.header-logo:active {
+  background-color: #ed6e2f;
+}
+.header-logo img {
+  width: 4.3vh;
+}
 .header-nav {
   float: right;
   padding: 5.5vh 60px 0 0;
-}
-.header {
-  background-color: #aaa;
-  height: 400px;
-  position: relative;
-  width: 100%;
 }
 .header-nav > li {
   display: inline-block;
   margin-left: 1em;
 }
+.header-nav > li ~ li {
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  padding-left: 1em;
+}
 .header-nav a {
-
-  color: #000;
+  color: #fff;
   font-size: 0.8rem;
   font-weight: bold;
   text-decoration: none;
@@ -150,7 +173,13 @@ background-color: #f00
 }
 .header-nav a:hover,
 .header-nav a:active {
-  color: #f00;
+  color: #ed6e2f;
+}
+.header-nav > li:first-child a {
+  color: #ed6e2f;
+}
+.header-nav > li:first-child a:hover {
+  color: #fff;
 }
 .header-logo:hover,
 .header-logo:active {
@@ -162,16 +191,18 @@ background-color: #f00
 }
 .header-logo {
   background-color: #000;
-  left: 50%;
-  position: absolute;
-  top: 50%;
- 
-    transform: translate(-50% -50%);
-
+  box-sizing: border-box;
+  display: block;
+  height: 10vh;
+  padding: 10px;
+  position: relative;
+  width: 10vh;
+}
+.header-logo img{
+  width: 4.3vh;
 }
 
-
-.header-nav >li:first-child a{
+/* .header-nav >li:first-child a{
   color: blue;
 }
 .header-nav > li:first-child a:hover {
@@ -179,7 +210,7 @@ color: aquamarine
 }
 .header-nav > li:last-child a:hover{
   color: blueviolet;
-}
+} */
 h2 ~ P {
   font-size: 0.8em;
   font-style: italic;
