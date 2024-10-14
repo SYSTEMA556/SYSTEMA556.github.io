@@ -1,11 +1,15 @@
 <footer class="footer">
-    <a class="footer-logo" href="/">
+  <ul class="footer-nav">
+    <li class="dropdown">
+     <a class="footer-logo" href="/">
       <img src="/images/logo.png" alt="Learn Enough"/>
     </a>
-    <nav>
-      <ul class="footer-nav nav-links">
-        {% include nav-links.html %}
-      </ul>
-    </nav>
+    <a href="#" class="drop-trigger">Footer Menu</a>
+  <ul class="drop-menu">
+    {% include nav-links.html %}
+  </ul>
+ </li>
+</ul>
+  
     <h3>Learn Enough <span>to Be Dangerous</span></h3>
   </footer>
