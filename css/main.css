@@ -1,4 +1,5 @@
 /* === RESET & GLOBAL STYLES === */
+/* ブラウザごとのデフォルトスタイルをリセットし、要素の一貫性を確保 */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -10,491 +11,880 @@ tbody, tfoot, thead, tr, th, td, article, aside,
 canvas, details, embed, figure, figcaption, footer,
 header, hgroup, menu, nav, output, ruby, section,
 summary, time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  vertical-align: baseline;
-  box-sizing: border-box;
+  margin: 0; /* すべての要素の外側の余白をリセット */
+  padding: 0; /* すべての要素の内側の余白をリセット */
+  border: 0; /* すべての要素の境界線をリセット */
+  font: inherit; /* 継承したフォント設定を適用 */
+  vertical-align: baseline; /* 垂直方向の配置を標準化 */
+  box-sizing: border-box; /* 境界線やパディングを含めたサイズ計算 */
 }
 
+/* HTML5要素をブロック表示に設定して正しくレイアウト */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
+/* bodyの標準的なスタイルを設定 */
 body {
-  line-height: 1;
-  display: flex;
-  flex-direction: column;
-  font-family: helvetica, arial, sans;
-  min-height: 100vh;
+  line-height: 1; /* テキスト行の高さを1に統一 */
+  display: flex; /* フレックスボックスレイアウトを適用 */
+  flex-direction: column; /* 子要素を縦方向に並べる */
+  font-family: helvetica, arial, sans; /* フォントファミリーの設定 */
+  min-height: 100vh; /* 最低でも画面全体の高さを確保 */
 }
 
+/* blockquoteやq要素のデフォルトの引用符を削除 */
 blockquote, q {
   quotes: none;
 }
 
+/* blockquoteやq要素の前後にあるデフォルトのコンテンツを削除 */
 blockquote:before, blockquote:after,
 q:before, q:after {
-  content: 'ss';
+  content: 'ss'; /* ダミーテキストとして 'ss' を設定（間違いのようです） */
 }
 
+/* テーブルのボーダーを統一し、スペーシングを無効に */
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+  border-collapse: collapse; /* 境界線を結合 */
+  border-spacing: 0; /* セル間のスペースをなくす */
 }
 
+/* 強調表示用にbとstrongタグを太字に設定 */
 strong, b {
   font-weight: bold;
 }
 
+/* イタリック表示用にiとemタグを斜体に設定 */
 em, i {
   font-style: italic;
 }
 
+/* リンク内の画像にボーダーがつかないようにする */
 a img {
   border: none;
 }
-
+img{
+  max-width: auto;
+}
+/* HTMLタグ全体にボックスシャドウを適用し、30pxの黒いシャドウを設定 */
 html {
-  box-shadow: 0 0 0 30px #000 inset;
-  padding: 0 30px;
+  box-shadow: 0 0 0 30px #000 inset; /* 内側に黒い影 */
+  padding: 0 30px; /* 内側に左右30pxのパディング */
 }
 
+/* メインコンテンツを中央揃えし、幅を100%に設定 */
 .content-container {
-  display: flex;
-  flex: 1 1 auto;
-  padding-top: 10vh;
-  width: 100%;
+  display: flex; /* フレックスボックスレイアウト */
+  flex: 1 1 auto; /* 自動調整可能なサイズを設定 */
+  padding-top: 10vh; /* 上から10vhの余白 */
+  width: 100%; /* 幅を100%に */
 }
 
+/* H1タグのサイズを画面幅に基づいて調整 */
 h1 {
-  font-size: 7vw;
-  margin-top: 0;
+  font-size: 7vw; /* 画面幅の7%をフォントサイズに設定 */
+  margin-top: 0; /* 上に余白なし */
 }
 
+/* H2タグのフォントサイズを設定 */
 h2 {
-  font-size: 2em;
+  font-size: 2em; /* 2倍の標準フォントサイズ */
 }
 
+/* H4タグの色とスタイルを設定 */
+h4 {
+  color: #999; /* 灰色の文字色 */
+  font-weight: bold; /* 太字 */
+  text-transform: uppercase; /* すべて大文字に変換 */
+}
+
+/* pタグの行間と上下のマージンを設定 */
 p {
-  line-height: 1.5;
-  margin: 0.75em 0;
+  line-height: 1.5; /* 行の高さを1.5倍に */
+  margin: 0.75em 0; /* 上下に0.75emのマージン */
 }
 
+/* H2に続くpタグのスタイルを特別に設定 */
 h2 ~ p {
-  font-size: 0.8em;
-  font-style: italic;
-  margin: 1em auto 0;
-  max-width: 70%;
-  text-align: center;
+  font-size: 0.8em; /* フォントサイズを小さく */
+  font-style: italic; /* 斜体に */
+  margin: 1em auto 0; /* 上に1emのマージン、自動中央揃え */
+  max-width: 70%; /* 最大幅を70%に */
+  text-align: center; /* テキストを中央揃え */
 }
 
+/* aタグのリンクの色を設定 */
 a {
-  color: #6397b5;
+  color: #6397b5; /* 青みがかった色 */
 }
 
 /* === HEADER STYLES === */
+/* ヘッダーの固定表示設定 */
 .header {
-  background-color: #000;
-  color: #fff;
-  position: fixed;
-  width: 100%;
-  z-index: 20;
-  display: flex;
+  background-color: #000; /* 黒背景 */
+  color: #fff; /* 白文字 */
+  position: fixed; /* 固定表示 */
+  width: 100%; /* 幅を100%に */
+  z-index: 20; /* 他の要素よりも上に表示 */
+  display: flex; /* フレックスボックスレイアウト */
 }
 
+/* ヘッダーロゴのスタイル設定 */
 .header-logo {
-  background-color: #000;
-  box-sizing: border-box;
-  display: block;
-  height: 10vh;
-  left: -30px;
-  padding-top: 10px;
-  position: relative;
-  text-align: center;
-  width: 10vh;
+  background-color: #000; /* 黒背景 */
+  box-sizing: border-box; /* ボックスサイズを設定 */
+  display: block; /* ブロック要素として表示 */
+  height: 10vh; /* 高さを10vhに */
+  left: -30px; /* 左に30px移動 */
+  padding-top: 10px; /* 上に10pxのパディング */
+  position: relative; /* 相対位置 */
+  text-align: center; /* 中央揃え */
+  width: 10vh; /* 幅を10vhに */
 }
 
+/* ヘッダーロゴにホバーまたはクリックした時の背景色変更 */
 .header-logo:hover,
 .header-logo:active {
-  background-color: #ed6e2f;
+  background-color: #ed6e2f; /* オレンジ色に変更 */
 }
 
+/* ロゴ画像の大きさを調整 */
 .header-logo img {
-  width: 4.3vh;
+  width: 4.3vh; /* 幅を4.3vhに */
 }
 
+/* ヘッダーメニューの位置調整 */
 .header-nav {
-  float: right;
-  padding: 5.5vh 60px 0 0;
+  float: right; /* 右揃え */
+  padding: 5.5vh 60px 0 0; /* 上に5.5vh、右に60pxのパディング */
 }
 
+/* メニューリスト項目のスタイル */
 .header-nav > li {
-  display: inline-block;
-  margin-left: 1em;
+  display: inline-block; /* インラインブロック表示 */
+  margin-left: 1em; /* 左に1emのマージン */
 }
 
+/* 隣接するメニュー項目に境界線とパディングを設定 */
 .header-nav > li ~ li {
-  border-left: 1px solid rgba(255, 255, 255, 0.3);
-  padding-left: 1em;
+  border-left: 1px solid rgba(255, 255, 255, 0.3); /* 白色の境界線 */
+  padding-left: 1em; /* 左に1emのパディング */
 }
 
-.header-nav a {
-  color: #fff;
+/* メニュー内のリンクの色を設定 */
+.header-nav a , .drop-trigger{
+  color: #fff; /* 白文字 */
 }
 
-.nav-links a {
-  font-size: 0.8rem;
-  font-weight: bold;
-  text-decoration: none;
-  text-transform: uppercase;
+/* メニューリンクのフォントサイズと装飾を設定 */
+.nav-links a , .drop-trigger{
+  font-size: 0.8rem; /* フォントサイズを小さく */
+  font-weight: bold; /* 太字 */
+  text-decoration: none; /* 下線を削除 */
+  text-transform: uppercase; /* すべて大文字に */
 }
 
+/* リンクにホバーまたはクリック時の色変更 */
 .nav-links a:hover,
 .nav-links a:active {
-  color: #ed6e2f;
+  color: #ed6e2f; /* オレンジ色に変更 */
 }
 
+/* 最初のメニュー項目のリンクに特別な色を設定 */
 .header-nav > li:first-child a {
-  color: #ed6e2f;
+  color: #ed6e2f; /* オレンジ色 */
 }
 
+/* 最初のメニュー項目にホバーした時の色変更 */
 .header-nav > li:first-child a:hover {
-  color: #fff;
+  color: #fff; /* 白色に戻す */
 }
-
 /* === FOOTER STYLES === */
+/* フッター全体のスタイルを設定 */
 .footer {
-  background-color: #000;
-  padding: 10vh 0 15vh;
-  text-align: center;
+  background-color: #000; /* 黒背景 */
+  padding: 10vh 0 15vh; /* 上に10vh、下に15vhのパディング */
+  text-align: center; /* 中央揃え */
 }
 
+/* フッターロゴの画像のサイズを設定 */
 .footer-logo img {
-  width: 50px;
+  width: 50px; /* 幅を50pxに設定 */
 }
 
+/* フッターの見出し（h3）のスタイルを設定 */
 .footer h3 {
-  color: #fff;
-  padding-top: 1.5em;
-  text-transform: uppercase;
+  color: #fff; /* 白文字 */
+  padding-top: 1.5em; /* 上に1.5emの余白 */
+  text-transform: uppercase; /* すべて大文字に変換 */
 }
 
+/* フッターのh3の一部文字に異なる色を設定 */
 .footer h3 span {
-  color: #aaa;
+  color: #aaa; /* グレーの文字色 */
 }
 
+/* フッターナビゲーションのリスト項目のスタイル */
 .footer-nav li {
-  display: inline-block;
-  margin: 2em 1em 0;
+  display: inline-block; /* インラインブロックで横並び */
+  margin: 2em 1em 0; /* 上に2em、左右に1emのマージン */
 }
 
+/* フッター内のリンクの色を設定 */
 .footer-nav a {
-  color: #ccc;
+  color: #ccc; /* グレーのリンク色 */
 }
 
 /* === HERO SECTION STYLES === */
+/* ヒーローセクション全体のスタイル */
 .full-hero {
-  background-color: #c7dbfc;
-  background-size: cover;
-  box-sizing: border-box;
-  height: 90vh;
+  background-color: #c7dbfc; /* 淡い青背景 */
+  background-size: cover; /* 背景画像を要素全体にカバー */
+  box-sizing: border-box; /* ボックスサイズの境界計算を含める */
+  height: 90vh; /* 高さを90vhに設定 */
 }
 
+/* ヒーローセクション内のコンテンツのスタイル */
 .hero-content {
-  color: #fff;
-  position: relative;
-  text-align: center;
-  text-transform: uppercase;
-  top: 50%;
-  transform: translate(0, -50%);
+  color: #fff; /* 白文字 */
+  position: relative; /* 相対的な位置 */
+  text-align: center; /* テキストを中央揃え */
+  text-transform: uppercase; /* すべて大文字に変換 */
+  top: 50%; /* 要素を上下中央に配置 */
+  transform: translate(0, -50%); /* 上下中央揃えのためにY軸を-50%移動 */
 }
 
+/* ヒーローセクション内のh1のスタイル */
 .hero-content h1 {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 7vw;
-  margin-bottom: 0.25em;
+  color: rgba(255, 255, 255, 0.8); /* 半透明の白色 */
+  font-size: 7vw; /* 画面幅の7%に基づいたフォントサイズ */
+  margin-bottom: 0.25em; /* 下に0.25emの余白 */
 }
 
+/* ヒーローセクション内のソーシャルリンクのスタイル */
 .hero-content .social-link {
-  background-color: rgba(255, 255, 255, 0.8);
-  color: #557c83;
+  background-color: rgba(255, 255, 255, 0.8); /* 半透明の白背景 */
+  color: #557c83; /* 青緑色のテキスト */
 }
 
+/* ソーシャルリンクにホバーした際の色変更 */
 .hero-content .social-link:hover {
-  background-color: #000;
-  color: #fff;
+  background-color: #000; /* 黒背景 */
+  color: #fff; /* 白文字 */
 }
 
+/* ホームページヒーローセクションの背景画像の設定 */
 .hero-home {
-  background-image: url("/images/shark.jpg");
-  background-position: center top;
+  background-image: url("/images/shark.jpg"); /* サメの画像を背景に設定 */
+  background-position: center top; /* 画像の中央上部を表示 */
 }
 
+/* ヒーローセクションの下にある三角形のスタイル */
 .full-hero:after {
-  border: 10px solid;
-  border-color: white transparent transparent;
-  bottom: 2vh;
-  content: "";
-  height: 0;
-  left: 50%;
-  position: absolute;
-  transform: translate(-50%, 0);
+  border: 10px solid; /* 10pxの幅で境界線を作成 */
+  border-color: white transparent transparent; /* 上が白、残りが透明な三角形 */
+  bottom: 2vh; /* 下から2vhの位置 */
+  content: ""; /* 空のコンテンツを表示 */
+  height: 0; /* 高さ0の要素を作成 */
+  left: 50%; /* 左から50%の位置に配置（中央揃え） */
+  position: absolute; /* 絶対位置 */
+  transform: translate(-50%, 0); /* X軸方向で要素を中央揃え */
+}
+.half-hero{
+ background-position: center center;
+ background-size: cover;
+ height: 40vh;
 }
 
 /* === SOCIAL STYLES === */
+/* ソーシャルリストのスタイルをリセット */
 .social-list {
-  list-style: none;
-  padding: 0;
-  text-align: center;
+  list-style: none; /* リストスタイルをなしに */
+  padding: 0; /* パディングを0に */
+  text-align: center; /* テキストを中央揃え */
 }
 
+/* ソーシャルリンクのスタイル */
 .social-link {
-  background: rgba(150, 150, 150, 0.5);
-  border-radius: 99px;
-  box-sizing: border-box;
-  color: #fff;
-  display: inline-block;
-  font-family: helvetica, arial, sans;
-  font-size: 1rem;
-  font-weight: bold;
-  height: 2.5em;
-  line-height: 1;
-  padding-top: 0.85em;
-  text-align: center;
-  text-decoration: none;
-  vertical-align: middle;
-  width: 2.5em;
+  background: rgba(150, 150, 150, 0.5); /* 半透明のグレー背景 */
+  border-radius: 99px; /* 丸みのある角を設定 */
+  box-sizing: border-box; /* ボックスサイズ計算を適用 */
+  color: #fff; /* 白文字 */
+  display: inline-block; /* インラインブロックで横並びに */
+  font-family: helvetica, arial, sans; /* フォント設定 */
+  font-size: 1rem; /* フォントサイズを1remに */
+  font-weight: bold; /* 太字に */
+  height: 2.5em; /* 高さを2.5emに設定 */
+  line-height: 1; /* 行の高さを1に */
+  padding-top: 0.85em; /* 上に0.85emのパディング */
+  text-align: center; /* テキストを中央揃え */
+  text-decoration: none; /* テキストの装飾をなしに */
+  vertical-align: middle; /* 垂直方向で中央揃え */
+  width: 2.5em; /* 幅を2.5emに設定 */
 }
 
+/* ソーシャルリスト内のリスト項目のスタイル */
 .social-list > li {
-  display: inline-block;
-  margin: 0 0.5em;
+  display: inline-block; /* インラインブロックで横並び */
+  margin: 0 0.5em; /* 左右に0.5emのマージン */
 }
 
 /* === HOME PAGE STYLES === */
+/* ホームセクション全体のスタイル */
 .home-section {
-  margin: 6rem auto;
-  max-width: 980px;
-  width: 90vh;
+  margin: 6rem auto; /* 上下に6remのマージン、自動中央揃え */
+  max-width: 980px; /* 最大幅を980pxに */
+  width: 90vh; /* 幅を90vhに設定 */
 }
 
+/* ホームセクション内のh2タグのスタイル */
 .home-section h2 {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem; /* 下に1.5remの余白 */
+  text-align: center; /* 中央揃え */
+}
+.home-section h4{
+  margin-bottom: 0.5em;
   text-align: center;
 }
-
+.home-section .post-header{
+  text-align: center;
+}
+.home-section .blog-posts{
+  margin: auto;
+  width: 75%;
+}
+/* ホームページの強調表示のスタイル */
 .home-callout {
-  align-items: center;
-  background-color: #000;
-  color: #fff;
-  display: flex;
-  padding: 7vh 0;
+  align-items: center; /* フレックス要素を垂直方向に中央揃え */
+  background-color: #000; /* 黒背景 */
+  color: #fff; /* 白文字 */
+  display: flex; /* フレックスボックスレイアウト */
+  padding: 7vh 0; /* 上下に7vhのパディング */
 }
 
+/* ホームページの見出し（h3）のスタイル */
 .home-callout h3 {
-  color: inherit;
-  margin-top: 1em;
+  color: inherit; /* 親要素から色を継承 */
+  margin-top: 1em; /* 上に1emの余白 */
 }
 
+/* ホームページの強調表示タイトルのスタイル */
 .callout-title {
-  flex: 1 1 0;
-  font-size: 5.75vw;
-  text-align: right;
-  text-transform: uppercase;
+  flex: 1 1 0; /* フレックスレイアウトでサイズを調整 */
+  font-size: 5.75vw; /* 画面幅の5.75%をフォントサイズに */
+  text-align: right; /* 右揃え */
+  text-transform: uppercase; /* すべて大文字に変換 */
 }
 
+/* ホームページのコピー部分のスタイル */
 .callout-copy {
-  flex: 0 0 45em;
-  font-size: 0.8rem;
-  padding: 0 3vw;
+  flex: 0 0 45em; /* 固定幅を設定 */
+  font-size: 0.8rem; /* 小さめのフォントサイズ */
+  padding: 0 3vw; /* 左右に3vwのパディング */
 }
 
 /* === BIOGRAPHY STYLES === */
+/* バイオグラフィー全体のスタイル */
 .bio-wrapper {
-  font-size: 24px;
-  margin: auto;
-  max-width: 960px;
-  overflow: hidden;
+  font-size: 24px; /* フォントサイズを24pxに */
+  margin: auto; /* 自動中央揃え */
+  max-width: 960px; /* 最大幅を960pxに設定 */
+  overflow: hidden; /* 溢れた内容を隠す */
 }
 
+/* バイオグラフィーの個々のボックススタイル */
 .bio-box {
-  box-sizing: border-box;
-  float: left;
-  font-size: 1rem;
-  margin: 6rem 0 0;
-  padding: 0 3%;
-  width: 33%;
+  box-sizing: border-box; /* ボックスサイズ計算を適用 */
+  float: left; /* 左揃え */
+  font-size: 1rem; /* フォントサイズを1remに */
+  margin: 6rem 0 0; /* 上に6remのマージン */
+ 
+  padding: 0 3%; /* 左右に3%のパディング */
+  width: 33%; /* 横幅を33%に設定し、3列レイアウトに */
 }
 
+/* バイオグラフィーボックス内の見出し（h3）のスタイル */
 .bio-box h3 {
-  color: #fff;
-  font-size: 1.5em;
-  margin: -40px 0 1em;
-  text-align: center;
-  text-transform: uppercase;
+  color: #fff; /* 白文字 */
+  font-size: 1.5em; /* フォントサイズを1.5emに設定 */
+  margin: -40px 0 1em; /* 上に-40pxの余白（画像に重なるように）、下に1em */
+  text-align: center; /* 中央揃え */
+  text-transform: uppercase; /* すべて大文字に変換 */
 }
 
+/* バイオグラフィーボックス内の画像のスタイル */
 .bio-box img {
-  width: 100%;
+  width: 100%; /* 横幅を100%にして、ボックス内に収める */
 }
 
+/* バイオグラフィーボックス内のソーシャルリンクのスタイル */
 .bio-box .social-link {
-  display: block;
-  margin: 2em auto 1em;
+  display: block; /* ブロック要素として表示 */
+  margin: 2em auto 1em; /* 上に2em、下に1emのマージン、自動中央揃え */
 }
 
+/* バイオグラフィーの本文部分のスタイル */
 .bio-copy {
-  font-size: 0.75em;
+  font-size: 0.75em; /* フォントサイズを小さめに */
 }
 
+/* バイオグラフィー内のリンクの色を設定 */
 .bio-copy a {
-  color: green;
+  color: green; /* 緑色に設定 */
 }
 
-/* カラムスタイル */
+/* カラムレイアウトのスタイル */
 .col-three {
-  display: flex;
-  flex: 1;
+  display: flex; /* フレックスボックスレイアウト */
+  flex: 1; /* フレックスアイテムとして残りのスペースを埋める */
 }
+
+/* 個々のカラム要素のスタイル */
 .col {
-  box-sizing: border-box;
-  padding: 2em;
+  box-sizing: border-box; /* ボックスサイズ計算を適用 */
+  padding: 2em; /* 全体に2emのパディング */
 }
+
+/* 隣接するカラムに境界線を設定 */
 .col-three .col ~ .col {
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: 1px solid rgba(0, 0, 0, 0.1); /* 左側に薄い境界線 */
 }
+
+/* カラムナビゲーションの幅を設定 */
 .col-three .col-nav {
-  flex: 0 1 15em;
+  flex: 0 1 15em; /* 横幅を15emに固定 */
 }
+
+/* メインコンテンツ部分のスタイル */
 .col-three .col-content {
-  flex: 1 1 0;
+  flex: 1 1 0; /* 残りのスペースを占める */
 }
+
+/* サイドカラムの幅を設定 */
 .col-three .col-aside {
-  flex: 0 1 20em;
+  flex: 0 1 20em; /* 横幅を20emに固定 */
 }
-/* ギャラリースタイル */
+
+/* ギャラリーサムネイル部分の高さを設定 */
 .gallery-thumbs {
-  height: 90vh;
-  overflow: scroll;
+  height: 90vh; /* 高さを90vhに設定 */
+  overflow: scroll; /* 内容が溢れたらスクロール */
 }
+
+/* ギャラリーサムネイル内の個々のサムネイルボックスのスタイル */
 .gallery-thumbs > div {
-  cursor: pointer;
+  cursor: pointer; /* ポインタを表示（クリック可能な領域） */
 }
+
+/* ギャラリーサムネイル画像のスタイル */
 .gallery-thumbs img {
-  box-sizing: border-box;
-  box-shadow: 0 0 0 5px transparent;
-  display: inline-block;
-  margin: 0 0 10px;
-  opacity: 0.5;
-  transition: opacity 0.5s ease-in-out;
-  width: 100%;
+  box-sizing: border-box; /* ボックスサイズ計算を適用 */
+  box-shadow: 0 0 0 5px transparent; /* デフォルトの透明なボーダー */
+  display: inline-block; /* インラインブロックで表示 */
+  margin: 0 0 10px; /* 下に10pxの余白 */
+  opacity: 0.5; /* 半透明に */
+  transition: opacity 0.5s ease-in-out; /* ホバー時の透過度変更をスムーズに */
+  width: 100%; /* 幅を100%に設定 */
 }
+
+/* サムネイル画像にホバーした際のスタイル */
 .gallery-thumbs img:hover {
-  opacity: 1;
-
+  opacity: 1; /* 完全に不透明に */
 }
+
+/* 現在選択されているサムネイルのスタイル */
 .gallery-thumbs .current img {
-  box-shadow: 0 0 0 5px #ed6e2f;
-  opacity: 1;
-  cursor: default;
+  box-shadow: 0 0 0 5px #ed6e2f; /* オレンジ色の枠線 */
+  opacity: 1; /* 完全に不透明に */
+  cursor: default; /* カーソルをデフォルトに */
 }
+
+/* ギャラリーフォトのスタイル */
 .gallery-photo {
-  position: relative;
+  position: relative; /* 相対的な位置に配置 */
 }
+
+/* ギャラリーフォト画像のスタイル */
 .gallery-photo img {
-  width: 100%;
+  width: 100%; /* 幅を100%に設定 */
 }
+
+/* ギャラリー情報のフォントサイズを設定 */
 .gallery-info {
-  font-size: 0.8rem;
+  font-size: 0.8rem; /* 小さめのフォントサイズ */
 }
+
+/* ギャラリー情報内の見出し（h3）のスタイル */
 .gallery-info h3 {
-  margin-bottom: 1em;
+  margin-bottom: 1em; /* 下に1emの余白 */
 }
 
-
-
-
+/* 2カラムレイアウトのスタイル */
 .col-two {
-  display: flex;
+  display: flex; /* フレックスボックスレイアウト */
+  /* flex-direction: column; 子要素を縦方向に並べる */
 }
+
+/* 2カラムレイアウトのサイド部分のスタイル */
 .col-two .col-aside {
-  flex: 0 0 20em;
-  order: 1;
+  flex: 0 0 20em; /* 横幅を20emに固定 */
+  order: 1; /* 最初に表示 */
 }
+
+/* 2カラムレイアウトのメインコンテンツ部分のスタイル */
 .col-two .col-content {
-  flex: 1;
+  flex: 1; /* 残りのスペースを占める */
 }
-bundle exec jekyll serve --force_polling --livereload
+
+/* ページ全体のマージンと最大幅を設定 */
 .page {
-  margin: 10vh auto 15vh;
-  max-width:980px;
-  width: 85vw;
+  margin: 10vh auto 15vh; /* 上に10vh、下に15vhの余白、中央揃え */
+  max-width:980px; /* 最大幅を980pxに設定 */
+  width: 85vw; /* 横幅を85vwに設定 */
 }
+
+/* ページ内のh1タグのスタイル */
 .page h1 {
-  font-size: 3em;
-  margin-bottom: 1em;
-  text-align: center;
+  font-size: 3em; /* フォントサイズを3emに設定 */
+  margin-bottom: 1em; /* 下に1emの余白 */
+  text-align: center; /* 中央揃え */
+  margin-top: 1em; /* 上に1emの余白 */
 }
+
+/* ページ内のh2タグのスタイル */
 .page h2 {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.5em; /* 下に0.5emの余白 */
 }
+
+/* ページ内のh4タグのスタイル */
 .page h4 {
-  margin-bottom: 1em;
+  margin-bottom: 1em; /* 下に1emの余白 */
 }
-/* 最新のブログの位置 */
+
+/* 最新のブログ部分のスタイル */
 .blog-recent {
-  text-align: right;
+  text-align: right; /* テキストを右揃え */
 }
-/* ブログのタイトルは特に外側に余白なく流す */
+
+/* ブログのタイトルリストのスタイルをリセット */
 .blog-title-list {
-  list-style: none;
-  padding: 0;
+  list-style: none; /* リストスタイルをなしに */
+  padding: 1; /* パディングを少し追加（誤りかもしれません） */
 }
-/* ブログのタイトルの間はさすがに1.5emあける */
+
+/* ブログタイトル間に余白を設定 */
 .blog-title-list li ~ li {
-  margin-top: 1.5em;
+  margin-top: 1.5em; /* 上に1.5emの余白 */
 }
-/* タイトルリストだけ色を変えてみる */
+
+/* ブログタイトルリストのタイトル部分の色を変更 */
 .blog-title-list span {
-  color: #999;
-  display: block;
-  font-size: 0.8em;
-  font-style: italic;
-  margin-top: 0.5em;
+  color: #999; /* 灰色に設定 */
+  display: block; /* ブロック要素として表示 */
+  font-size: 0.8em; /* フォントサイズを小さめに */
+  font-style: italic; /* 斜体に */
+  margin-top: 0.5em; /* 上に0.5emの余白 */
 }
-/* 　兄弟セレクター（隣接する要素にスタイルをつける。同じ親要素の下にあり、指定した要素の後に続く全ての兄弟のスタイル */
+
+/* ブログの投稿リスト間の境界線を設定 */
 .blog-posts ~ .blog-posts {
-  border-top: 1px dotted rgba(0, 0, 0, 0.1);
-  margin-top: 4em;
-  padding-top: 4em;
+  border-top: 1px dotted rgba(0, 0, 0, 0.1); /* 点線の境界線 */
+  margin-top: 4em; /* 上に4emの余白 */
+  padding-top: 4em; /* 上に4emのパディング */
 }
-/* ブログの投稿のヘッダのサイズ */
+
+/* ブログ投稿のヘッダー部分のフォントサイズを設定 */
 .blog-posts .post-header {
-  font-size: 0.8rem;
+  font-size: 0.8rem; /* 小さめのフォントサイズ */
 }
-/* 投稿のヘッダーの画面からの余白 */
+
+/* 投稿ヘッダーのマージンを設定 */
 .post-header {
-  margin-bottom: 1.5em;
+  margin-bottom: 1.5rem; /* 下に1.5remの余白 */
 }
-/*ブログのヘッダーの画像とソーシャルリンクの幅  */
+
+/* 投稿ヘッダー内の画像とソーシャルリンクのマージン */
 .post-header img,
 .post-header .social-link {
-  margin-right: 0.5em;
+  margin-right: 0.5em; /* 右に0.5emの余白 */
 }
-/* 投稿の画像の置き場所と大きさ */
+
+/* 投稿内の画像のスタイル */
 .post-header img {
-  border-radius: 99px;
-  display: inline-block;
-  height: 2.5em;
-  vertical-align: middle;
+  border-radius: 99px; /* 丸みのある角 */
+  display: inline-block; /* インラインブロックで表示 */
+  height: 2.5em; /* 高さを2.5emに設定 */
+  vertical-align: middle; /* 垂直方向の中央に配置 */
+  width: auto;
 }
-/* 投稿された画像の大きさ */
+
+/* 投稿された画像の全体的な大きさと表示方法 */
 .posts-image {
-  background-position: center;
-  background-size: cover;
-  height: 6em;
-  margin-bottom: 1.5em;
+  background-position: center; /* 背景画像の中央を基準に表示 */
+  background-size: cover; /* 画像を要素全体にカバーするように表示 */
+  height: 6em; /* 高さを6emに設定 */
+  margin-bottom: 1.5em; /* 下に1.5emの余白を設定 */
+}
+
+/* 個々のブログ投稿のスタイル */
+.post {
+  width: 100%; /* 横幅を100%に設定 */
+}
+
+/* 投稿コンテンツとフッターのスタイル */
+.post-content, .post-footer {
+  margin: auto; /* 自動で中央揃え */
+  max-width: 40em; /* 最大幅を40emに設定 */
+  width: 85vw; /* 横幅を85vwに設定 */
+}
+
+/* 左側に浮動配置する要素のスタイル */
+.pull-left {
+  float: left; /* 左側に浮動 */
+  margin: 2em 2em 2em; /* 上下左右に2emの余白 */
+}
+
+/* 右側に浮動配置する要素のスタイル */
+.pull-right {
+  float: right; /* 右側に浮動 */
+  margin: 2em -2% 2em 2em; /* 上に2em、右に-2%、下に2em、左に2emの余白 */
+}
+
+/* 投稿のアサイド（サイドバー）部分のスタイル */
+.post-aside {
+  background-color: rgba(0, 0, 0, 0.1); /* 薄い黒背景 */
+  float: right; /* 右側に浮動 */
+  margin: 0 0 2em 2em; /* 下に2em、左に2emの余白 */
+}
+
+/* ブログ投稿のヘッダー部分のスタイル */
+.post .post-header {
+  margin-bottom: 2.5em; /* 下に2.5emの余白 */
+  text-align: center; /* テキストを中央揃え */
+}
+
+/* 投稿コンテンツ部分のスタイル */
+.post-content {
+  font-size: 1.1em; /* 少し大きめのフォントサイズ */
+}
+
+/* 投稿フッター部分のスタイル */
+.post-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.1); /* 上部に薄い境界線 */
+  font-style: italic; /* 斜体に設定 */
+  font-size: 0.8em; /* 小さめのフォントサイズ */
+  margin-top: 3em; /* 上に3emの余白 */
+  padding-top: 2em; /* 上に2emのパディング */
+}
+ @media (max-wdth: 800px){
+  html{
+    box-shadow: none;
+    padding: 0;
+  }
+  .post-aside{
+    display: none;
+  }
+ }
+ @media (max-width : 600px){
+  html{
+    .half-hero{
+      display: none;
+    }
+  }
+ }
+  /* ヘッダースタイル */
+  .header-nav {
+    padding: 2vh 1em 0 0;
+  }
+ .header-nav > li {
+  margin-left: 0.25em;
+ }
+ .header-nav li ~ li{
+  padding-left: 0.25em;
+ }
+ .nav-links a {
+  font-size: 3.25vw;
+ }
+ .header-logo{
+  left: auto;
+ }
+ /* homeページスタイル */
+ .home-callout {
+  flex-direction: column;
+}
+.callout-copy {
+  flex: 1;
+}
+.bio-box {
+  float: none;
+  font-size: 1.3rem;
+  width: auto;
+}
+ /* ブログスタイル */
+ .post-aside{
+  display: none;
+ }
+ /* ギャラリー */
+ .gallery {
+  flex-direction: column;
+ }
+ .gallery .col{
+  padding: 1em;
+ }
+ .gallery .gallery-thumbs{
+  flex: 1 1 0;
+  height: auto;
+  white-space: nowrap;
+  width: 100vw;
+ }
+ .gallery-thumbs > div {
+  display: inline-block;
+}
+.gallery-thumbs img {
+  height: 7vh;
+  margin: 0 10px 0 0;
+  width: auto;
+}
+.gallery .gallery-info {
+  flex: 1;
+}
+/* home page スタイル */
+.home-callout{
+  flex-direction: column;
+}
+.callout-copy{
+  flex: 1;
+}
+.bio-box{
+  float: none;
+  font-size: 1.3em;
+  width: auto;
+}
+  /* ブログスタイル */
+  /* .blog-recent {
+    display: none;
+  } */
+  .blog-previews {
+    padding: 0;
+  }
+.blog-recent{
+  display: block;
+  width: 100%;
+  background-color: #c7dbfc;
+  padding: 2em;
+  border-bottom: 10px solid #ed6e2f;
+  margin-bottom: 2em;
+}
+/* 見出しのスタイル */
+.blog-recent h4 {
+  font-size: 2em; /* 見出しを大きく */
+  margin-bottom: 1em; /* 下に余白を追加 */
+  text-align: center; /* 中央揃え */
+}
+
+/* ブログタイトルリストのスタイル */
+.blog-title-list {
+  list-style: none; /* リストスタイルをリセット */
+  padding: 0; /* パディングをリセット */
+}
+
+.blog-title-list li {
+  margin-bottom: 1.5em; /* 各リストアイテムに余白を追加 */
+}
+
+.blog-title-list a {
+  font-size: 1.2em; /* リンクのフォントサイズを少し大きく */
+  color: #333; /* リンクの文字色を濃いグレーに */
+  text-decoration: none; /* 下線を削除 */
+}
+
+.blog-title-list a:hover {
+  color: #ed6e2f; /* ホバー時にオレンジ色に変更 */
+}
+
+.blog-title-list span {
+  color: #999; /* 日付や投稿者名をグレーに */
+}
+/* ブログの最新記事リストを表示し、上部に配置 */
+.blog-recent {
+  display: none; /* 非表示を解除 */
+  width: 100%; /* 幅をページ全体に */
+  background-color: #f5f5f5; /* 背景色を設定 */
+  padding: 2em; /* 内側に余白を追加 */
+  border-bottom: 1px solid #ddd; /* 下に境界線を追加 */
+  margin-bottom: 2em; /* 下に余白を追加 */
+}
+
+/* 見出しのスタイル */
+.blog-recent h4 {
+  font-size: 2em; /* 見出しを大きく */
+  margin-bottom: 1em; /* 下に余白を追加 */
+  text-align: center; /* 中央揃え */
+}
+
+/* ブログタイトルリストのスタイル */
+.blog-title-list {
+  list-style: none; /* リストスタイルをリセット */
+  padding: 0; /* パディングをリセット */
+}
+
+.blog-title-list li {
+  margin-bottom: 1.5em; /* 各リストアイテムに余白を追加 */
+}
+
+.blog-title-list a {
+  font-size: 1.2em; /* リンクのフォントサイズを少し大きく */
+  color: #333; /* リンクの文字色を濃いグレーに */
+  text-decoration: none; /* 下線を削除 */
+}
+
+.blog-title-list a:hover {
+  color: #ed6e2f; /* ホバー時にオレンジ色に変更 */
+}
+
+.blog-title-list span {
+  color: #999; /* 日付や投稿者名をグレーに */
+}
+.post-content img{
+  max-width: 100%;
+
+}
+.dropdown{
+position: relative;
+}
+.drop-trigger{
+  display: inline-block;
+  padding-right: 1.5em ;
+  position: relative;
+
+}
+.drop-trigger:after {
+  border: 0.3em solid;
+  border-color: #fff transparent transparent;
+  content: "";
+  height: 0;
+  position: absolute;
+  right: 0;
+  top: 0.3em;
+  width: 0;
+}
+.drop-menu {
+  display: none;
+  list-style: none;
+  padding: 1em 0 0;
+  position: absolute;
+  right: 0;
+  z-index: 9;
+}
+.drop-menu li {
+  background-color: #fff;
+}
+.drop-menu a {
+  color: #333;
+  display: block;
+}
+.dropdown:hover .drop-menu {
+  display: block;
 }

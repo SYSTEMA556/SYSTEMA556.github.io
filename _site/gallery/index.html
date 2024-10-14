@@ -2,6 +2,8 @@
 <html lang="en">
     <title>Test Page: Don't Panic</title>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=500px, initial-scale=1">
+
   <link rel="stylesheet" href="/css/main.css">
 
 <body>
@@ -11,7 +13,7 @@
         <li><a href="/">Home</a></li>
         <li><a href="/gallery">gallery</a></li>
         <li><a href="/blog">blog</a></li>
-        <li><a href="#">Nav 3</a></li>
+        <li><a href="/2024/10/10/title-of-post.html">Recent POst</a></li>
         </ul>
   </nav>
     <a href="/" class="header-logo">
@@ -47,10 +49,24 @@
     </a>
     <nav>
       <ul class="footer-nav nav-links">
-        <li><a href="/">Home</a></li>
+        
+<li><a href="/">Home</a></li>
 <li><a href="/gallery">Gallery</a></li>
-<li><a href="/blog">Blog</a></li>
-<li><a href="">Nav 3</a></li>
+<li class="dropdown">
+    <a class="drop-trigger" href="/blog">Blog</a>
+    <ul class="drop-menu">
+      <li>Recent Posts</li>
+      
+        <li><a href="/2024/10/10/title-of-post.html">This is the title of the post</a></li>
+      
+        <li><a href="/2021/10/04/title-of-second-post.html">This is the title of the post</a></li>
+      
+        <li><a href="/2021/10/03/title-of-second-post.html">This is the title of the post</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/blog">Blog</a></li>
+<li><a href="">Newest Post</a></li>
       </ul>
     </nav>
     <h3>Learn Enough <span>to Be Dangerous</span></h3>
